@@ -17,7 +17,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
-        repository: digitalwitchdemo/main_bank_app_frontend
+        repository: POD-13/Bank-Frontend
         ref: main
 
 
@@ -45,8 +45,8 @@ jobs:
 
     - name: Clean up Docker image locally
       run: |
-        docker rmi bank-app-frontend:latest
-        docker rmi ${{ vars.ECR_REPO }}/bank-frontend:${{ github.run_number }}
+        docker rmi bank-app-frontend:latest || true
+        docker rmi ${{ vars.ECR_REPO }}/bank-frontend:${{ github.run_number }} || true
 
     - name: Clean up GitHub repo on runner
       run: rm -rf ./*
@@ -62,11 +62,11 @@ jobs:
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
           GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
       run: |
-         git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/digitalwitchdemo/kubernetes-manifest.git
+         git clone https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_PASSWORD }}@github.com/POD-13/Bank-Kubernetes-Manifest.git 
          
          cd kubernetes-manifest
-         git config --global user.email "chukwunonsosmartagbawo@gmail.com"
-         git config --global user.name "smartcloud2023"
+         git config --global user.email "aitalsolomon983@gmail.com"
+         git config --global user.name "Solomon Atalokhai"
 
          sed -i "s+${{ vars.ECR_REPO }}/bank-frontend:.*+${{ vars.ECR_REPO }}/bank-frontend:${{ github.run_number }}+g" ./bank-project/frontend.yaml
 
