@@ -16,9 +16,10 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-      with:
-        repository: POD-13/Bank-Frontend
-        ref: main
+    # with:
+      #  repository: POD-13/Bank-Frontend
+      #  ref: main
+      
 
 
     - name: Log in to awscli
@@ -64,7 +65,7 @@ jobs:
       run: |
          git clone https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_PASSWORD }}@github.com/POD-13/Bank-Kubernetes-Manifest.git 
          
-         cd kubernetes-manifest
+         cd Bank-Kubernetes-Manifest
          git config --global user.email "aitalsolomon983@gmail.com"
          git config --global user.name "Solomon Atalokhai"
 
