@@ -1,7 +1,12 @@
-# Stage 1 — Build
-FROM node:18-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
+FROM node:18-alpine
+
+
+
+COPY . .
+
+RUN npm install --save-dev @babel/plugin-proposal-private-property-in-object
+RUN npm install --save react react-dom @types/react @types/react-dom
+RUN npm install react-scripts@3.0.1  --save
 RUN npm install
 COPY . .
 RUN npm run build
