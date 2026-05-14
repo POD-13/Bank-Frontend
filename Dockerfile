@@ -1,17 +1,12 @@
-FROM node:18-alpine
-
-
-
-COPY . .
-
-RUN npm install --save-dev @babel/plugin-proposal-private-property-in-object
-RUN npm install --save react react-dom @types/react @types/react-dom
-RUN npm install react-scripts@3.0.1  --save
+# Stage 1 — Build
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
 
-# Stage 2 — Servve with nginx
+# Stage 2 — Serve with nginx
 FROM nginx:alpine
 WORKDIR /usr/share/nginx/html
 COPY --from=builder /app/build .
