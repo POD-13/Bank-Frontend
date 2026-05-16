@@ -27,7 +27,7 @@ const AddBankAccount = () => {
   };
 
   const saveAccount = (e) => {
-    fetch("https://bankapi.cloudwitches.online/api/bank/account/add", {
+    fetch("https://bankapi.pod13fintech.online/api/bank/account/add", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -58,7 +58,7 @@ const AddBankAccount = () => {
               navigate("/customer/bank/account/detail", { state: customer });
             }, 1000); // Redirect after 3 seconds
           } else {
-            console.log("Didn't got success response");
+            console.log("Didn't get success response");
             toast.error("It seems server is down", {
               position: "top-center",
               autoClose: 1000,
