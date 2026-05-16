@@ -143,7 +143,7 @@ const AdminRegisterForm = () => {
   };
 
   const loginAction = (e) => {
-    fetch("https://bankapi.cloudwitches.online/api/user/admin/register", {
+    fetch("https://bankapi.pod13fintech.online/api/user/admin/register", {
       method: "POST",
       headers: {
         Accept: "application/json",

@@ -12,7 +12,7 @@ const ViewBankAllTransactions = () => {
 
   const retrieveAllTransactions = async () => {
     const response = await axios.get(
-      "https://bankapi.cloudwitches.online/api/bank/transaction/all/customer/fetch?bankId=" +
+      "https://bankapi.pod13fintech.online/api/bank/transaction/all/customer/fetch?bankId=" +
         bank.bank.id,
       {
         headers: {
@@ -77,8 +77,8 @@ const ViewBankAllTransactions = () => {
                     <th scope="col">Source Account</th>
                     <th scope="col">Transaction Type</th>
                     <th scope="col">Amount</th>
-                    <th scope="col">Reciepent Bank</th>
-                    <th scope="col">Reciepent Account</th>
+                    <th scope="col">Recipient Bank</th>
+                    <th scope="col">Recipient Account</th>
                     <th scope="col">Narration</th>
                     <th scope="col">Transaction Time</th>
                   </tr>

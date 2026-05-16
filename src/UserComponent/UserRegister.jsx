@@ -46,7 +46,7 @@ const UserRegister = () => {
       jwtToken = sessionStorage.getItem("admin-jwtToken"); // Use admin's JWT token for bank register
     }
 
-    fetch("https://bankapi.cloudwitches.online/api/user/register", {
+    fetch("https://bankapi.pod13fintech.online/api/user/register", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -85,7 +85,7 @@ const UserRegister = () => {
             } else {
             }
           } else {
-            console.log("Didn't got success response");
+            console.log("Didn't get success response");
             toast.error("It seems server is down", {
               position: "top-center",
               autoClose: 1000,

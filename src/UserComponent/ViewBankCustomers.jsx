@@ -22,7 +22,7 @@ const ViewBankCustomers = () => {
 
   const retrieveAllCustomers = async () => {
     const response = await axios.get(
-      "https://bankapi.cloudwitches.online/api/user/bank/customers?bankId=" + bank.bank.id,
+      "https://bankapi.pod13fintech.online/api/user/bank/customers?bankId=" + bank.bank.id,
       {
         headers: {
           Authorization: "Bearer " + bank_jwtToken, // Replace with your actual JWT token
@@ -35,7 +35,7 @@ const ViewBankCustomers = () => {
 
   const retrieveBankAllCustomerByName = async () => {
     const response = await axios.get(
-      "https://bankapi.cloudwitches.online/api/user/bank/customer/search?bankId=" +
+      "https://bankapi.pod13fintech.online/api/user/bank/customer/search?bankId=" +
         bank.bank.id +
         "&customerName=" +
         customerName,
@@ -87,7 +87,7 @@ const ViewBankCustomers = () => {
     updateUserStatusRequest.userId = userId;
     updateUserStatusRequest.status = "Active";
 
-    fetch("https://bankapi.cloudwitches.online/api/user/update/status", {
+    fetch("https://bankapi.pod13fintech.online/api/user/update/status", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -118,7 +118,7 @@ const ViewBankCustomers = () => {
               window.location.reload(true);
             }, 1000); // Redirect after 3 seconds
           } else {
-            console.log("Didn't got success response");
+            console.log("Didn't get success response");
             toast.error("It seems server is down", {
               position: "top-center",
               autoClose: 1000,
@@ -155,7 +155,7 @@ const ViewBankCustomers = () => {
     updateUserStatusRequest.userId = userId;
     updateUserStatusRequest.status = "Deactivated";
 
-    fetch("https://bankapi.cloudwitches.online/api/user/update/status", {
+    fetch("https://bankapi.pod13fintech.online/api/user/update/status", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -186,7 +186,7 @@ const ViewBankCustomers = () => {
               window.location.reload(true);
             }, 1000); // Redirect after 3 seconds
           } else {
-            console.log("Didn't got success response");
+            console.log("Didn't get success response");
             toast.error("It seems server is down", {
               position: "top-center",
               autoClose: 1000,

@@ -12,7 +12,7 @@ const ViewAllBankTransactions = () => {
 
   const retrieveAllTransactions = async () => {
     const response = await axios.get(
-      "https://bankapi.cloudwitches.online/api/bank/transaction/all",
+      "https://bankapi.pod13fintech.online/api/bank/transaction/all",
       {
         headers: {
           Authorization: "Bearer " + admin_jwtToken, // Replace with your actual JWT token
@@ -75,8 +75,8 @@ const ViewAllBankTransactions = () => {
                     <th scope="col">Source Account</th>
                     <th scope="col">Transaction Type</th>
                     <th scope="col">Amount</th>
-                    <th scope="col">Reciepent Bank</th>
-                    <th scope="col">Reciepent Account</th>
+                    <th scope="col">Recipient Bank</th>
+                    <th scope="col">Recipient Account</th>
                     <th scope="col">Narration</th>
                     <th scope="col">Transaction Time</th>
                   </tr>
